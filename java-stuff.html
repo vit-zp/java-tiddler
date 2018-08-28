@@ -174,6 +174,8 @@ Error message and password prompt
 
             <li>HAL</li>
 
+            <li>HATEOAS</li>
+
             <li>Hibernate</li>
 
             <li>Java Collections</li>
@@ -185,6 +187,10 @@ Error message and password prompt
             <li>Spring Boot</li>
 
             <li>Spring Core</li>
+
+            <li>Spring Security</li>
+
+            <li>Todo</li>
 
         </ul>
         </p>
@@ -8761,7 +8767,7 @@ Error message and password prompt
     <div created="20180827142427351" modified="20180827142427351" title="$:/state/toc/Contents-REST-1637712383">
         <pre>open</pre>
     </div>
-    <div list="Contents HAL" title="$:/StoryList">
+    <div list="Todo HATEOAS REST Content" title="$:/StoryList">
         <pre></pre>
     </div>
     <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -8953,6 +8959,13 @@ APIs that adopt HAL can be easily served and consumed using open source librarie
 
 http://stateless.co/hal_specification.html</pre>
     </div>
+    <div created="20180828070607789" modified="20180828070743688" tags="REST" title="HATEOAS">
+<pre>
+
+__''Useful links''__
+
+https://en.wikipedia.org/wiki/HATEOAS</pre>
+    </div>
     <div created="20180827083104814" modified="20180827114549440" tags="Contents" title="Hibernate">
         <pre></pre>
     </div>
@@ -8969,8 +8982,49 @@ https://www.baeldung.com/java-collections
 &lt;&lt;toc-selective-expandable 'Java Core' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
     </div>
-    <div created="20180827141444413" modified="20180827142012626" tags="Contents" title="REST">
-<pre>&lt;div class='tc-table-of-contents'&gt;
+    <div created="20180827141444413" modified="20180828071037147" tags="Contents" title="REST">
+<pre>''REpresentational State Transfer'' - architectural approach of modern applications based on HTTP(s) protocol
+
+The main idea is to use separated URI for each resource. For example:
+For users stuff:
+.../api/users/{user_id}
+
+__''Depends on HTTP method and appropriate link we are able to process appropriate resource''__
+ 
+''GET'' for ''.../api/users/'' - obtain all users info
+''POST'' for ''.../api/users/'' - create a new user
+''PUT'' for ''.../api/users/'' - update ALL users collection by new one
+''DELETE'' for ''.../api/users/'' - delete all users
+ 
+__''Concrete user''__
+
+''GET'' for ''.../api/users/{user_ID}'' - obtain all users info
+
+''POST'' for ''.../api/users/{USER_ID}'' - don't make ANY SENSE and not used
+
+''PUT'' or &quot;PATCH&quot; for ''.../api/users/'' - update ALL users collection by new one
+
+''DELETE'' for ''.../api/users/'' - delete all users
+
+__''Collection URIs''__
+
+URIs like
+''.../api/users/'' - depends on HTTP method  some activity for users all collection
+
+''.../api/users/{USER_ID}/roles/'' -depends on HTTP method  some activity for all roles collection  for appropriate user;
+ 
+''Hypermedia as the Engine of Application State'' - some additional links for navigation, exploring resources
+ 
+__''Best practices''__
+
+* to use ''PLURAL FORM'' of ''NOUN'' for appropriate resource  -'' .../api/users/''
+* to use ''HTTP methods'' to perform actions - for ''CRUD (C - POST;  R - GET;  U - PUT; D - DELETE)''
+* to use request params for filtering like GET for .../api/users/?position=10&amp;next=20  for obtain next 20 users from 10
+* to use HATEOAS 
+* to use Response Status Code (like 500, 404, 200, 201, etc) to inform client about operation success
+* use some API for documentation like swagger
+ 
+&lt;div class='tc-table-of-contents'&gt;
 &lt;&lt;toc-selective-expandable 'REST' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
     </div>
@@ -8982,6 +9036,38 @@ https://spring.io/guides/</pre>
     </div>
     <div created="20180827083050000" modified="20180827114606711" tags="Contents" title="Spring Core">
         <pre></pre>
+    </div>
+    <div created="20180828061303857" modified="20180828061523414" tags="" title="Spring Security">
+<pre>
+''Useful links''
+
+---
+
+Spring Security Architecture
+
+https://spring.io/guides/topicals/spring-security-architecture/
+</pre>
+    </div>
+    <div created="20180828073106987" modified="20180828074725786" tags="Contents" title="Todo">
+<pre>''Spring Rest Tutor with all stuff include tests,  jpa,  lombok, etc''
+
+https://docs.spring.io/spring-data/rest/docs/3.0.9.RELEASE/reference/html/
+
+https://spring.io/guides/tutorials/bookmarks/
+
+https://spring.io/guides/topicals/spring-security-architecture
+
+ 
+
+''Jersey Tutor ''
+
+https://jersey.github.io/documentation/latest/jaxrs-resources.html
+
+''MapStruct -'' https://www.baeldung.com/mapstruct
+
+
+
+</pre>
     </div>
 
 </div>
