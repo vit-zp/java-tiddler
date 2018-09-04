@@ -150,6 +150,8 @@ Error message and password prompt
 
             <li>$:/SiteTitle</li>
 
+            <li>$:/state/image-picker/system--1723692104</li>
+
             <li>$:/state/tab--1963855381</li>
 
             <li>$:/state/tab-1749438307</li>
@@ -178,13 +180,19 @@ Error message and password prompt
 
             <li>$:/themes/tiddlywiki/vanilla</li>
 
+            <li>ArrayList</li>
+
             <li>Contents</li>
+
+            <li>Draft of 'Spring-Security-Tutorial'</li>
 
             <li>HAL</li>
 
             <li>HATEOAS</li>
 
             <li>Hibernate</li>
+
+            <li>Java Collection Framework</li>
 
             <li>Java Collections</li>
 
@@ -202,11 +210,19 @@ Error message and password prompt
 
             <li>Spring Core</li>
 
+            <li>Spring MVC</li>
+
             <li>Spring Rest</li>
 
             <li>Spring Security</li>
 
+            <li>Spring ThymeLeaf</li>
+
+            <li>Spring-Security-Tutorial</li>
+
             <li>Todo</li>
+
+            <li>Tutorials</li>
 
         </ul>
         </p>
@@ -8768,13 +8784,16 @@ Error message and password prompt
     <div created="20180827080229981" modified="20180827080230739" title="$:/SiteTitle">
         <pre>Java</pre>
     </div>
+    <div created="20180904122059916" modified="20180904122101419" title="$:/state/image-picker/system--1723692104">
+        <pre>hide</pre>
+    </div>
     <div created="20180828083328876" modified="20180828083328876" title="$:/state/tab--1963855381">
         <pre>$:/core/ui/ControlPanel/Toolbars</pre>
     </div>
     <div created="20180827083554867" modified="20180828083320389" title="$:/state/tab-1749438307">
         <pre>$:/core/ui/ControlPanel/Appearance</pre>
     </div>
-    <div created="20180827083420717" modified="20180828083210238" title="$:/state/tab/sidebar--1835078512">
+    <div created="20180827083420717" modified="20180904121111834" title="$:/state/tab/sidebar--1835078512">
         <pre>Contents</pre>
     </div>
     <div created="20180827115536429" modified="20180827115536429" title="$:/state/toc/Contents-Java Core-1637712383">
@@ -8792,10 +8811,10 @@ Error message and password prompt
     <div created="20180828075033881" modified="20180828075035329" title="$:/state/toc/Contents-SPRING-1637712383">
         <pre>close</pre>
     </div>
-    <div created="20180828075213841" modified="20180828075213841" title="$:/state/toc/Contents-SPRING-209360082">
+    <div created="20180828075213841" modified="20180904121113608" title="$:/state/toc/Contents-SPRING-209360082">
         <pre>open</pre>
     </div>
-    <div list="[[Spring Security]] HATEOAS Content" title="$:/StoryList">
+    <div list="[[Java Collection Framework]] ArrayList [[Java Collections]] SPRING" title="$:/StoryList">
         <pre></pre>
     </div>
     <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -8968,11 +8987,74 @@ Error message and password prompt
     }
 }</pre>
     </div>
+    <div created="20180904121212570" modified="20180904125215330" tags="[[Java Collections]]" title="ArrayList">
+<pre>''ArrayList'' is a wrapper of Java array with some service methods like add, remove, etc which are used to control the array of objects. From other hand it's a implementation of ''List Interface'' of the ''[[Java Collection Framework|Java Collection Framework]]''. All the basic operations are shown on picture followed by the http://www.codenuclear.com/wp-content/uploads/2017/12/ArrayList_Dianamic-1.jpg.
+
+Internally an ArrayList uses an Object[] Array. All the addition, removal and traversal happens on this array.
+
+Performance of ArrayList
+The add operation runs in amortized constant time, that is, adding n elements requires O(n) time. All of the other operations run in linear time.
+
+The size, isEmpty, get, set, iterator, and listIterator operations run in constant time O(1).
+
+!!!Default No-Arg Constructor
+
+''List&lt;T&gt; list = new ArrayList&lt;&gt;();''
+
+!!!Constructor Accepting Initial Capacity
+
+''List&lt;T&gt; list = new ArrayList&lt;&gt;(20);''
+
+!!!Adding Elements
+
+''list.add(T);''
+
+''list.addAll(position, CT);'' where CT - Collection&lt;T&gt;; position - start position in the list;
+
+!!! Iterating the List
+
+There are two types of iterators available: Iterator and ListIterator. While the former gives you an opportunity to traverse the list in one direction, the latter allows you to traverse it in both directions.
+
+!!!Removing Elements
+
+''list.remove(0);''
+
+!!''Useful links''
+
+http://www.codenuclear.com/how-arraylist-works-internally-java/
+
+
+
+
+  </pre>
+    </div>
     <div created="20180827113752912" list-before="$:/core/ui/SideBar/Open" modified="20180827115442973"
          tags="$:/tags/SideBar" title="Contents">
 <pre>&lt;div class='tc-table-of-contents'&gt;
 &lt;&lt;toc-selective-expandable 'Contents' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
+    </div>
+    <div created="20180830080455786" draft.of="Spring-Security-Tutorial" draft.title="Spring-Security-Tutorial"
+         modified="20180830085243538" tags="Tutorials" title="Draft of 'Spring-Security-Tutorial'">
+<pre>! ''Create a starter''
+
+The project created as a standard Spring Boot project with dependencies:
+
+* &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-data-rest&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+* &lt;artifactId&gt;liquibase-core&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+* &lt;artifactId&gt;h2&lt;/artifactId&gt;
+* &lt;version&gt;1.4.196&lt;/version&gt; - added this string for compatibility
+* &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt; -- added by default;
+* &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+* &lt;artifactId&gt;spring-security-test&lt;/artifactId&gt; - added by previous dep;
+
+</pre>
     </div>
     <div created="20180827142022866" modified="20180827142306573" tags="REST" title="HAL">
 <pre>!!!''HAL - Hypertext Application Language''
@@ -8997,8 +9079,17 @@ https://zeroturnaround.com/rebellabs/beyond-rest-how-to-build-a-hateoas-api-in-j
     <div created="20180827083104814" modified="20180827114549440" tags="Contents" title="Hibernate">
         <pre></pre>
     </div>
-    <div created="20180827115330735" modified="20180827141932602" tags="[[Java Core]]" title="Java Collections">
-<pre>!!!''Useful Links''
+    <div created="20180904121810919" modified="20180904121830739" tags="[[Java Collections]]"
+         title="Java Collection Framework">
+        <pre></pre>
+    </div>
+    <div created="20180827115330735" modified="20180904121207913" tags="[[Java Collections]] [[Java Core]]"
+         title="Java Collections">
+<pre>&lt;div class='tc-table-of-contents'&gt;
+&lt;&lt;toc-selective-expandable 'Java Collections' sort[title] &gt;&gt;
+&lt;/div&gt;
+
+!!!''Useful Links''
 
 A lot of tutorial related to the collections
 https://www.baeldung.com/java-collections
@@ -9083,7 +9174,7 @@ http://kingsfleet.blogspot.com/2014/02/transparent-patch-support-in-jax-rs-20.ht
 
 </pre>
     </div>
-    <div created="20180828074840971" modified="20180828075030770" tags="SPRING Contents" title="SPRING">
+    <div created="20180828074840971" modified="20180904121127987" tags="SPRING Contents" title="SPRING">
 <pre>&lt;div class='tc-table-of-contents'&gt;
 &lt;&lt;toc-selective-expandable 'SPRING' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
@@ -9095,6 +9186,9 @@ A lot of tutorials for boot
 https://spring.io/guides/</pre>
     </div>
     <div created="20180827083050000" modified="20180828075117938" tags="SPRING" title="Spring Core">
+        <pre></pre>
+    </div>
+    <div created="20180904120851274" modified="20180904120909266" tags="SPRING" title="Spring MVC">
         <pre></pre>
     </div>
     <div created="20180828075225431" modified="20180828075304650" tags="SPRING" title="Spring Rest">
@@ -9115,6 +9209,28 @@ https://o7planning.org/ru/11649/secure-spring-boot-restful-service-using-basic-a
 
 https://medium.com/@nydiarra/secure-a-spring-boot-rest-api-with-json-web-token-reference-to-angular-integration-e57a25806c50
 </pre>
+    </div>
+    <div created="20180904120926697" modified="20180904120954145" tags="SPRING" title="Spring ThymeLeaf">
+        <pre></pre>
+    </div>
+    <div created="20180830080455786" modified="20180830084711283" tags="Tutorials" title="Spring-Security-Tutorial">
+<pre>! ''Create a starter''
+
+The project created as a standard Spring Boot project with dependencies:
+
+* &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-data-rest&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+* &lt;artifactId&gt;liquibase-core&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+* &lt;artifactId&gt;h2&lt;/artifactId&gt;
+* &lt;version&gt;1.4.196&lt;/version&gt; - added this string for compatibility
+* &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+* &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt; -- added by default;
+* &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+* &lt;artifactId&gt;spring-security-test&lt;/artifactId&gt; - added by previous dep;</pre>
     </div>
     <div created="20180828073106987" modified="20180828081351658" tags="Contents" title="Todo">
 <pre>''Spring Rest Tutor with all stuff include tests,  jpa,  lombok, etc''
@@ -9138,6 +9254,11 @@ https://jersey.github.io/documentation/latest/jaxrs-resources.html
 
 
 </pre>
+    </div>
+    <div created="20180830080406991" modified="20180830080612190" tags="Contents" title="Tutorials">
+<pre>&lt;div class='tc-table-of-contents'&gt;
+&lt;&lt;toc-selective-expandable 'Tutorials' sort[title] &gt;&gt;
+&lt;/div&gt;</pre>
     </div>
 
 </div>
