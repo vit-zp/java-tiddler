@@ -164,6 +164,8 @@ Error message and password prompt
 
             <li>$:/state/toc/Contents-Java Core-209360082</li>
 
+            <li>$:/state/toc/Contents-Multithreading-209360082</li>
+
             <li>$:/state/toc/Contents-REST-1637712383</li>
 
             <li>$:/state/toc/Contents-REST-209360082</li>
@@ -187,6 +189,8 @@ Error message and password prompt
             <li>ArrayList</li>
 
             <li>Contents</li>
+
+            <li>Create a Thread</li>
 
             <li>Design Patterns</li>
 
@@ -212,11 +216,19 @@ Error message and password prompt
 
             <li>Java Memory Management</li>
 
+            <li>Java Stream Overview</li>
+
             <li>Java Streams</li>
+
+            <li>Java Streams intermediate operations</li>
+
+            <li>Java streams terminal operations</li>
 
             <li>Java Useful Links</li>
 
             <li>Microservices</li>
+
+            <li>Multithreading</li>
 
             <li>OAUTH 2.0</li>
 
@@ -238,6 +250,8 @@ Error message and password prompt
 
             <li>Spring Security</li>
 
+            <li>Spring Tests</li>
+
             <li>Spring ThymeLeaf</li>
 
             <li>Spring Transaction Management</li>
@@ -249,6 +263,8 @@ Error message and password prompt
             <li>Transactions</li>
 
             <li>Tutorials</li>
+
+            <li>volatile keyword</li>
 
         </ul>
         </p>
@@ -8822,13 +8838,17 @@ Error message and password prompt
     <div created="20180827083554867" modified="20180921074118214" title="$:/state/tab-1749438307">
         <pre>$:/core/ui/ControlPanel/Settings</pre>
     </div>
-    <div created="20180827083420717" modified="20180921074100822" title="$:/state/tab/sidebar--1835078512">
-        <pre>$:/core/ui/SideBar/More</pre>
+    <div created="20180827083420717" modified="20180924081614291" title="$:/state/tab/sidebar--1835078512">
+        <pre>Contents</pre>
     </div>
     <div created="20180827115536429" modified="20180827115536429" title="$:/state/toc/Contents-Java Core-1637712383">
         <pre>open</pre>
     </div>
     <div created="20180827123245431" modified="20180827123245431" title="$:/state/toc/Contents-Java Core-209360082">
+        <pre>open</pre>
+    </div>
+    <div created="20180924085337231" modified="20180924085337231"
+         title="$:/state/toc/Contents-Multithreading-209360082">
         <pre>open</pre>
     </div>
     <div created="20180827142427351" modified="20180827142427351" title="$:/state/toc/Contents-REST-1637712383">
@@ -8843,7 +8863,8 @@ Error message and password prompt
     <div created="20180828075213841" modified="20180904121113608" title="$:/state/toc/Contents-SPRING-209360082">
         <pre>open</pre>
     </div>
-    <div list="[[Java Memory Management]] Adapter [[Design Patterns]] Content" title="$:/StoryList">
+    <div list="[[Java streams terminal operations]] [[Java Streams intermediate operations]] [[Java Stream Overview]] [[Java Streams]] [[Java Memory Management]] Adapter [[Design Patterns]] Content"
+         title="$:/StoryList">
         <pre></pre>
     </div>
     <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9079,6 +9100,54 @@ http://www.codenuclear.com/how-arraylist-works-internally-java/
 <pre>&lt;div class='tc-table-of-contents'&gt;
 &lt;&lt;toc-selective-expandable 'Contents' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
+    </div>
+    <div created="20180924083438556" modified="20180924084350102" tags="Multithreading" title="Create a Thread">
+<pre>! Create a thread 
+
+!! 1st Approach
+
+''1. Create a class which extends the Thread''
+
+public class ''MyThread'' extends ''Thread ''{};
+
+''2. override run method.''
+
+@Override
+public void run(){};
+
+''3. Create an object MyThread''
+
+MyThread currentThread = new MyThread();
+
+''4. run start method''
+
+currentThread.start();
+
+!!2nd Approach
+
+''1. Create a class that implements Runnable''
+
+public class ''MyRunnable ''implements ''Runnable ''{
+
+@override
+
+public void run(){
+
+...
+
+}
+
+};
+
+''2. create a Thread instance with MyRunnable''
+
+MyRunnable myRunnable = new MyRunnable();
+
+Thread currentThread = new Thread(myRunnable);
+
+''3. start a thread''
+
+currentThread.start();</pre>
     </div>
     <div created="20180917075640735" modified="20180920080556559" tags="Contents" title="Design Patterns">
 <pre>
@@ -9319,13 +9388,55 @@ http://alexandr.logdown.com/posts/22570
 
 https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java</pre>
     </div>
-    <div created="20180917070905068" modified="20180917071129833" tags="[[Java Core]]" title="Java Streams">
-<pre>
+    <div created="20180925072605739" modified="20180925080236625" tags="[[Java Streams]]" title="Java Stream Overview">
+<pre>Java Stream is a possibility to ''process  data in functional way'' and from my point of view it's a ''declaration how the data should be processed''
+
+* ''A Stream is a pipeline of functions that can be evaluated''
+* ''Streams can transform data''
+* ''A Stream is not a data structure''
+* ''Streams cannot mutate data''
+
+Most importantly, a ''stream isn’t a data structure''. You can often create a stream from collections to apply a number of functions on a data structure, but a stream itself is not a data structure. That’s so important, I mentioned it twice! A stream can be composed of multiple functions that create a pipeline that data that flows through. This data cannot be mutated. That is to say the original data structure doesn’t change. However the data can be transformed and later stored in another data structure or perhaps consumed by another operation.
+
+We stated that a stream is a pipeline of functions, or operations. These operations can either be classed as an intermediate operation or a terminal operation. The difference between the two is in the output which the operation creates. If an operation outputs another stream, to which you could apply a further operation, we call it an intermediate operation. However, if the operation outputs a concrete type or produces a side effect, it is a terminal type. A subsequent stream operation cannot follow a terminal operation, obviously, as a stream is not returned by the terminal operation!
+
+[img[images/java-streams/stream_processing_workflow.png]]
+
+[img[images/java-streams/Java-8-Streams-cheat-sheet.png]]
+
+''Useful links''
+
+http://files.zeroturnaround.com/pdf/zt_java8_streams_cheat_sheet.pdf
+
+https://zeroturnaround.com/rebellabs/java-8-streams-cheat-sheet/
+</pre>
+    </div>
+    <div created="20180917070905068" modified="20180925072601086" tags="[[Java Core]]" title="Java Streams">
+<pre>&lt;div class='tc-table-of-contents'&gt;
+&lt;&lt;toc-selective-expandable 'Java Streams' sort[title] &gt;&gt;
+&lt;/div&gt;
 
 ''Useful links''
 
 Full tutorial in Russian: 
 https://annimon.com/article/2778</pre>
+    </div>
+    <div created="20180925075803353" modified="20180925080137961" tags="[[Java Streams]]"
+         title="Java Streams intermediate operations">
+<pre>An intermediate operation is always lazily executed. That is to say they are not run until the point a terminal operation is reached. We’ll look in more depth at a few of the most popular intermediate operations used in a stream.
+
+filter – the filter operation returns a stream of elements that satisfy the predicate passed in as a parameter to the operation. The elements themselves before and after the filter will have the same type, however the number of elements will likely change.
+
+map – the map operation returns a stream of elements after they have been processed by the function passed in as a parameter. The elements before and after the mapping may have a different type, but there will be the same total number of elements.
+
+distinct – the distinct operation is a special case of the filter operation. Distinct returns a stream of elements such that each element is unique in the stream, based on the equals method of the elements.
+
+
+</pre>
+    </div>
+    <div created="20180925080144442" modified="20180925080230776" tags="[[Java Streams]]"
+         title="Java streams terminal operations">
+        <pre>A terminal operation is always eagerly executed. This operation will kick off the execution of all previous lazy operations present in the stream. Terminal operations either return concrete types or produce a side effect. For instance, a reduce operation which calls the Integer::sum operation would produce an Optional, which is a concrete type. Alternatively, the forEach operation does not return a concrete type, but you are able to add a side effect such as print out each element. The collect terminal operation is a special type of reduce which takes all the elements from the stream and can produce a Set, Map or List. </pre>
     </div>
     <div created="20180828081453955" modified="20180828081549402" tags="Contents" title="Java Useful Links">
 <pre>Шпаргалки Java
@@ -9339,6 +9450,18 @@ http://callistaenterprise.se/blogg/teknik/2015/03/25/an-operations-model-for-mic
 
 ''How to extract a data-rich service from a monolith''
 https://martinfowler.com/articles/extract-data-rich-service.html</pre>
+    </div>
+    <div created="20180924081626013" modified="20180924105215081" tags="[[Java Core]] Contents" title="Multithreading">
+<pre>&lt;div class='tc-table-of-contents'&gt;
+&lt;&lt;toc-selective-expandable 'Multithreading' sort[title] &gt;&gt;
+&lt;/div&gt;
+
+''Useful Links''
+
+https://www.ibm.com/developerworks/java/library/j-5things15/index.html
+
+https://www.ibm.com/developerworks/ru/library/j-5things15/index.html
+</pre>
     </div>
     <div created="20180912121101268" modified="20180912121150468" tags="Contents" title="OAUTH 2.0">
 <pre>
@@ -9485,6 +9608,9 @@ https://medium.com/@nydiarra/secure-a-spring-boot-rest-api-with-json-web-token-r
 https://dazito.com/java/spring-boot-and-oauth2-with-jdbc
 </pre>
     </div>
+    <div created="20180925072100302" modified="20180925072321028" tags="SPRING" title="Spring Tests">
+        <pre></pre>
+    </div>
     <div created="20180904120926697" modified="20180904120954145" tags="SPRING" title="Spring ThymeLeaf">
         <pre></pre>
     </div>
@@ -9586,6 +9712,14 @@ https://www.ibm.com/developerworks/ru/library/j-ts1/index.html</pre>
 <pre>&lt;div class='tc-table-of-contents'&gt;
 &lt;&lt;toc-selective-expandable 'Tutorials' sort[title] &gt;&gt;
 &lt;/div&gt;</pre>
+    </div>
+    <div created="20180924085340010" modified="20180924085847899" tags="Multithreading" title="volatile keyword">
+<pre>The Java ''volatile ''keyword ''guarantees visibility'' of ''changes'' to ''variables across threads'' - ''bypass ALL CACHES'' levels 
+
+
+''Useful links''
+
+http://tutorials.jenkov.com/java-concurrency/volatile.html</pre>
     </div>
 
 </div>
